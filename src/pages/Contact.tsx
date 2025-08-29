@@ -115,12 +115,12 @@ const Contact = () => {
                   <Phone className="w-5 h-5 text-warm-gray" />
                   <div>
                     <p className="font-medium">Call Us</p>
-                    <p className="text-sm text-warm-gray">+260 XXX XXX XXX</p>
+                    <p className="text-sm text-warm-gray">+260 97 4823502</p>
                   </div>
                 </a>
 
                 <a
-                  href="#"
+                  href="https://wa.me/+260974823502"
                   className="flex items-center space-x-4 p-4 bg-white border border-nude rounded-lg hover:bg-nude/20 transition-all duration-300"
                 >
                   <MessageCircle className="w-5 h-5 text-warm-gray" />
@@ -153,20 +153,41 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">Location</p>
                     <p className="text-sm text-warm-gray leading-relaxed">
-                      123 Luxury Avenue<br />
-                      Lusaka, Zambia
+                      Ibex Hub, Ibex Hill, Top Floor<br />
+                      Zambeef Building, Lusaka, Zambia
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="aspect-video bg-warm-gray/20 rounded-lg flex items-center justify-center">
-                <div className="text-center space-y-2">
-                  <MapPin className="w-8 h-8 text-warm-gray mx-auto" />
-                  <p className="text-sm text-warm-gray">Google Map Integration</p>
+                {/* Google Maps Integration */}
+                <div className="space-y-4">
+                <h4 className="text-lg font-medium">Find Us</h4>
+                <div className="aspect-video rounded-lg overflow-hidden border border-nude">
+                  <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.123456789!2d28.3293!3d-15.3875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f4b1234567ab%3A0x1234567890abcdef!2sIbex%20Hill%2C%20Lusaka%2C%20Zambia!5e0!3m2!1sen!2szm!4v1234567890123!5m2!1sen!2szm"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Kire Studio Location - Ibex Hub, Lusaka"
+                  className="w-full h-full"
+                  ></iframe>
                 </div>
-              </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-warm-gray">Click to interact with map</span>
+                  <a
+                  href="https://maps.google.com/?q=Ibex+Hub,+Ibex+Hill,+Lusaka,+Zambia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-warm-gray hover:text-black transition-colors underline"
+                  >
+                  Open in Google Maps
+                  </a>
+                </div>
+                </div>
             </div>
           </div>
         </div>

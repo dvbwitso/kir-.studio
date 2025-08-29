@@ -73,14 +73,14 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-3">
               <h5 className="text-sm font-medium">Payment Methods</h5>
-              <div className="flex space-x-3">
-                <div className="flex items-center px-3 py-2 bg-white text-xs font-medium text-black rounded space-x-2">
-                  <img src={mtnLogo} alt="MTN Money" className="w-4 h-4 object-contain" />
+              <div className="flex space-x-4">
+                <div className="flex items-center rounded-lg p-3">
+                  <img src={mtnLogo} alt="MTN Money" className="w-24 h-16 object-contain rounded-lg" />
                 </div>
-                <div className="flex items-center px-3 py-2 bg-white text-xs font-medium text-black rounded space-x-2">
-                  <img src={airtelLogo} alt="Airtel Money" className="w-4 h-4 object-contain" />
+                <div className="flex items-center rounded-lg p-3">
+                  <img src={airtelLogo} alt="Airtel Money" className="w-24 h-16 object-contain rounded-lg" />
                 </div>
               </div>
             </div>
