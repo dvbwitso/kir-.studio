@@ -35,7 +35,7 @@ const Shop = () => {
       category: 'Body Oils',
       description: 'Luxurious blend of natural oils for silky smooth skin',
       price: 'ZMW 180',
-      image: '/src/images/products/naurishing-body-oil.jpg',
+      image: '/images/products/naurishing-body-oil.jpg',
     },
     {
       id: 'body-oil-2',
@@ -43,7 +43,7 @@ const Shop = () => {
       category: 'Body Oils',
       description: 'Calming lavender-infused oil for evening relaxation',
       price: 'ZMW 200',
-      image: '/src/images/products/relaxing-lavendar.jpg',
+      image: '/images/products/relaxing-lavendar.jpg',
     },
     {
       id: 'serum-1',
@@ -51,7 +51,7 @@ const Shop = () => {
       category: 'Face Serums',
       description: 'Antioxidant-rich serum for radiant, even skin tone',
       price: 'ZMW 250',
-      image: '/src/images/products/vitamin-c-serum.jpg',
+      image: '/images/products/vitamin-c-serum.jpg',
     },
     {
       id: 'serum-2',
@@ -59,7 +59,7 @@ const Shop = () => {
       category: 'Face Serums',
       description: 'Deep hydration serum for plump, youthful skin',
       price: 'ZMW 280',
-      image: '/src/images/products/Hyaluronic-Acid-Serum.jpg',
+      image: '/images/products/Hyaluronic-Acid-Serum.jpg',
     },
     {
       id: 'serum-3',
@@ -67,7 +67,7 @@ const Shop = () => {
       category: 'Face Serums',
       description: 'Gentle retinol formula for overnight skin renewal',
       price: 'ZMW 320',
-      image: '/src/images/products/Retinol-Night-Serum.jpg',
+      image: '/images/products/Retinol-Night-Serum.jpg',
     },
     {
       id: 'body-oil-3',
@@ -75,7 +75,7 @@ const Shop = () => {
       category: 'Body Oils',
       description: 'Pure argan oil for deep nourishment and repair',
       price: 'ZMW 220',
-      image: '/src/images/products/naurishing-body-oil.jpg',
+      image: '/images/products/naurishing-body-oil.jpg',
     },
   ]);
 
@@ -654,7 +654,7 @@ const Shop = () => {
                       >
                         <div className="text-center space-y-4">
                           <img 
-                            src="/src/images/momo.jpg" 
+                            src="/images/momo.jpg" 
                             alt="MTN Mobile Money" 
                             className="w-16 h-16 mx-auto object-contain"
                           />
@@ -674,7 +674,7 @@ const Shop = () => {
                       >
                         <div className="text-center space-y-4">
                           <img 
-                            src="/src/images/airtel-money.jpg" 
+                            src="/images/airtel-money.jpg" 
                             alt="Airtel Money" 
                             className="w-16 h-16 mx-auto object-contain"
                           />

@@ -50,7 +50,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
       description: 'A comprehensive facial treatment that deep cleanses and purifies your skin',
       price: 'ZMW 350',
       duration: '60 minutes',
-      image: '/src/images/services/facial-treatment.jpg'
+      image: '/images/services/classic-facial.jpg'
     },
     {
       id: 'massage-1',
@@ -59,7 +59,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({
       description: 'Unwind with our signature full body massage using premium oils',
       price: 'ZMW 450',
       duration: '90 minutes',
-      image: '/src/images/services/massage.jpg'
+      image: '/images/services/relaxation-massage.jpg'
     }
   ]);
 
