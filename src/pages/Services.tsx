@@ -12,30 +12,35 @@ const Services = () => {
           description: 'A refreshing deep pore cleanse with exfoliation and extractions, designed to leave your skin clean, soft, and glowing. A perfect go-to for anyone in need of a reset and relaxation.',
           duration: '60 min',
           price: 'K400',
+          image: '/src/images/services/classic-facial.jpg',
         },
         {
           name: 'Vitamin C Facial',
           description: 'Brighten, hydrate, and even out your skin tone. This glow-boosting treatment is rich in antioxidants, targets hyperpigmentation, and leaves your skin with a fresh, radiant finish.',
           duration: '75 min',
           price: 'K550',
+          image: '/src/images/services/vitamin-c-facial.png',
         },
         {
           name: "Men's Facial",
           description: "Tailored specifically for men's skincare needs. This facial deeply cleanses the skin, helps prevent ingrown hairs, balances oil, and soothes irritation from shaving — leaving skin refreshed and sharp.",
           duration: '60 min',
           price: 'K500',
+          image: '/src/images/services/mens-facial.avif',
         },
         {
           name: 'Derma-planing',
           description: "Smooth and refine your skin's texture by removing fine facial hair and dead skin cells. Ideal for achieving a flawless finish and enhancing product absorption.",
           duration: '45 min',
           price: 'K600',
+          image: '/src/images/services/derma-planing.png',
         },
         {
           name: 'Custom Facial',
           description: "A premium, personalized experience. Includes a double cleanse, derma-planing, a tailored treatment using UV light therapy, and a mask chosen specifically for your skin's unique needs.",
           duration: '90 min',
           price: 'K800',
+          image: '/src/images/services/custom-facial.jpg',
         },
       ],
     },
@@ -47,18 +52,21 @@ const Services = () => {
           description: 'Professional hair removal with premium wax and aftercare',
           duration: '90 min',
           price: 'ZMW 500',
+          image: '/src/images/services/full-body-wax.jpg',
         },
         {
           name: 'Brazilian Wax',
           description: 'Intimate waxing service with utmost care and hygiene',
           duration: '45 min',
           price: 'ZMW 200',
+          image: '/src/images/services/brazilian-wax.jpg',
         },
         {
           name: 'Relaxation Massage',
           description: 'Full body therapeutic massage for stress relief',
           duration: '75 min',
           price: 'ZMW 400',
+          image: '/src/images/services/relaxation-massage.jpg',
         },
       ],
     },
@@ -70,18 +78,21 @@ const Services = () => {
           description: 'Natural-looking individual lash extensions',
           duration: '120 min',
           price: 'ZMW 300',
+          image: '/src/images/services/classic-lash-extensions.jpg',
         },
         {
           name: 'Volume Lashes',
           description: 'Dramatic, full-volume lash extensions',
           duration: '150 min',
           price: 'ZMW 450',
+          image: '/src/images/services/volume-lashes.jpg',
         },
         {
           name: 'Lash Lift & Tint',
           description: 'Natural curl and color enhancement',
           duration: '60 min',
           price: 'ZMW 180',
+          image: '/src/images/services/lash-lift-tint.avif',
         },
       ],
     },
@@ -114,9 +125,22 @@ const Services = () => {
                 {category.services.map((service, serviceIndex) => (
                   <div
                     key={serviceIndex}
-                    className="bg-white border border-nude p-8 rounded-lg hover:shadow-lg transition-all duration-300"
+                    className="bg-white border border-nude rounded-lg hover:shadow-lg transition-all duration-300 overflow-hidden"
                   >
-                    <div className="space-y-4">
+                    {/* Service Image */}
+                    <div className="aspect-w-16 aspect-h-12 bg-gray-100">
+                      <img
+                        src={service.image}
+                        alt={`Professional ${service.name} service`}
+                        className="w-full h-48 object-cover object-center"
+                        onError={(e) => {
+                          // Fallback to a placeholder if image doesn't exist
+                          e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzllYTNhOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkNvbWluZyBTb29uPC90ZXh0Pjwvc3ZnPg==';
+                        }}
+                      />
+                    </div>
+                    
+                    <div className="p-8 space-y-4">
                       <div className="flex justify-between items-start">
                         <h3 className="text-xl font-serif font-medium">
                           {service.name}

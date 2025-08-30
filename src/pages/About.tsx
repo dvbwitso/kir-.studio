@@ -66,7 +66,7 @@ const About = () => {
             <div className="space-y-8">
               <div className="aspect-[4/5] bg-nude/30 rounded-lg overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="https://scontent.flun2-1.fna.fbcdn.net/v/t39.30808-6/527086414_2149082765587527_5448286661132838645_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE3eP4uUFDnsuNnfp0DJ4jweCUj_71RRwJ4JSP_vVFHAuFKbX1xa1sUtCE-FHlhY_UtRrDVJqB0dHgvPDGu4_h2&_nc_ohc=Ps14bF8C1sYQ7kNvwG-vjdU&_nc_oc=Admp_ls4XSfV2wPpIldlW2XfeL94a2OObnhULURgU1zb5eWPM3kQG8j7a74_6sHLKwA&_nc_zt=23&_nc_ht=scontent.flun2-1.fna&_nc_gid=Nf8gp_Mf6IVhrxzmxALuPg&oh=00_AfUT0u6ZflF1BT3OGNJr9hrHV4P_eWUCBu5zI4epwYV5KA&oe=68B93020"
                   alt="KIRÈ Studio ambiance"
                   className="w-full h-full object-cover"
                 />
