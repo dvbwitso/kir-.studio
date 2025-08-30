@@ -1,0 +1,43 @@
+{
+  "sampleProducts": [
+    {
+      "name": "Anti-Aging Night Cream",
+      "category": "Face Creams",
+      "description": "Rich, nourishing night cream to combat signs of aging",
+      "price": "ZMW 380",
+      "image": "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    {
+      "name": "Hydrating Face Mask",
+      "category": "Face Masks",
+      "description": "Deep hydration mask for dry and sensitive skin",
+      "price": "ZMW 150",
+      "image": "https://images.pexels.com/photos/4041393/pexels-photo-4041393.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    {
+      "name": "Exfoliating Body Scrub",
+      "category": "Body Care",
+      "description": "Gentle exfoliating scrub with natural ingredients",
+      "price": "ZMW 120",
+      "image": "https://images.pexels.com/photos/4041394/pexels-photo-4041394.jpeg?auto=compress&cs=tinysrgb&w=800"
+    }
+  ],
+  "sampleServices": [
+    {
+      "name": "Microdermabrasion",
+      "category": "Advanced Treatments",
+      "description": "Professional skin resurfacing treatment",
+      "price": "ZMW 600",
+      "duration": "60 minutes",
+      "image": "https://images.pexels.com/photos/3997988/pexels-photo-3997988.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    {
+      "name": "Chemical Peel",
+      "category": "Advanced Treatments", 
+      "description": "Deep exfoliation for renewed skin",
+      "price": "ZMW 750",
+      "duration": "45 minutes",
+      "image": "https://images.pexels.com/photos/3997992/pexels-photo-3997992.jpeg?auto=compress&cs=tinysrgb&w=800"
+    }
+  ]
+}

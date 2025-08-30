@@ -1,0 +1,53 @@
+{
+  "products": {
+    "body-oil-1": {
+      "id": "body-oil-1",
+      "name": "Nourishing Body Oil",
+      "stock": 15,
+      "lowStockThreshold": 5,
+      "lastRestocked": "2025-08-30T00:00:00Z"
+    },
+    "body-oil-2": {
+      "id": "body-oil-2",
+      "name": "Relaxing Lavender Oil",
+      "stock": 8,
+      "lowStockThreshold": 5,
+      "lastRestocked": "2025-08-30T00:00:00Z"
+    },
+    "serum-1": {
+      "id": "serum-1",
+      "name": "Vitamin C Brightening Serum",
+      "stock": 12,
+      "lowStockThreshold": 5,
+      "lastRestocked": "2025-08-30T00:00:00Z"
+    },
+    "serum-2": {
+      "id": "serum-2",
+      "name": "Hyaluronic Acid Serum",
+      "stock": 0,
+      "lowStockThreshold": 5,
+      "lastRestocked": "2025-08-25T00:00:00Z",
+      "outOfStockSince": "2025-08-29T00:00:00Z"
+    },
+    "serum-3": {
+      "id": "serum-3",
+      "name": "Retinol Night Serum",
+      "stock": 3,
+      "lowStockThreshold": 5,
+      "lastRestocked": "2025-08-28T00:00:00Z"
+    },
+    "body-oil-3": {
+      "id": "body-oil-3",
+      "name": "Rejuvenating Argan Oil",
+      "stock": 20,
+      "lowStockThreshold": 5,
+      "lastRestocked": "2025-08-30T00:00:00Z"
+    }
+  },
+  "settings": {
+    "lowStockWarningEnabled": true,
+    "outOfStockNotificationsEnabled": true,
+    "autoRestockEnabled": false
+  },
+  "lastUpdated": "2025-08-30T00:00:00Z"
+}

@@ -47,25 +47,25 @@ const Footer = () => {
               <h4 className="text-lg font-serif font-medium">Connect</h4>
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/kire_studiozm/"
                   className="p-2 text-warm-gray hover:text-black transition-colors duration-300"
                 >
                   <Instagram size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="https://web.facebook.com/profile.php?id=61576159620581"
                   className="p-2 text-warm-gray hover:text-black transition-colors duration-300"
                 >
                   <Facebook size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="https://wa.me/+260974823502"
                   className="p-2 text-warm-gray hover:text-black transition-colors duration-300"
                 >
                   <MessageCircle size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="tel:+260974823502"
                   className="p-2 text-warm-gray hover:text-black transition-colors duration-300"
                 >
                   <Phone size={20} />
