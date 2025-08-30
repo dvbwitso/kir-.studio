@@ -1,13 +1,62 @@
-import React, { useState } from 'react';
-import { Instagram, Facebook, Clock, AlertCircle } from 'lucide-react';
-import { BookingCalendarIllustration } from '../components/Illustrations';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { Instagram, Facebook, Clock, AlertCircle, CheckCircle, ArrowLeft } from 'lucide-react';
+import BookingCalendar from '../components/BookingCalendar';
 
 const Booking = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [selectedService, setSelectedService] = useState('');
+  const [bookingConfirmed, setBookingConfirmed] = useState(false);
+  const [confirmedBooking, setConfirmedBooking] = useState<{
+    service: string;
+    date: string;
+    time: string;
+  } | null>(null);
+
+  // Extract service from URL parameters
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const serviceFromUrl = urlParams.get('service');
+    if (serviceFromUrl) {
+      setSelectedService(serviceFromUrl);
+    }
+  }, [location.search]);
+
+  const handleServiceChange = (newService: string) => {
+    setSelectedService(newService);
+    // Update URL to reflect the selected service
+    const urlParams = new URLSearchParams(location.search);
+    if (newService) {
+      urlParams.set('service', newService);
+    } else {
+      urlParams.delete('service');
+    }
+    const newSearch = urlParams.toString();
+    navigate(`/booking${newSearch ? `?${newSearch}` : ''}`, { replace: true });
+  };
+
+  const handleBookingConfirm = (date: string, time: string) => {
+    setConfirmedBooking({
+      service: selectedService,
+      date: date,
+      time: time
+    });
+    setBookingConfirmed(true);
+    
+    // Reset after 5 seconds
+    setTimeout(() => {
+      setBookingConfirmed(false);
+      setConfirmedBooking(null);
+    }, 5000);
+  };
 
   const services = [
     'Classic Facial',
-    'Anti-Aging Facial',
+    'Vitamin C Facial',
+    'Men\'s Facial',
+    'Derma-planing',
+    'Custom Facial',
     'Full Body Wax',
     'Brazilian Wax',
     'Relaxation Massage',
@@ -21,6 +70,15 @@ const Booking = () => {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-8 mb-16">
+            <div className="flex items-center justify-center space-x-4 mb-4">
+              <Link 
+                to="/services" 
+                className="inline-flex items-center space-x-2 text-warm-gray hover:text-black transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span className="text-sm">Back to Services</span>
+              </Link>
+            </div>
             <h1 className="text-4xl md:text-6xl font-serif font-light">
               Book Your Appointment
             </h1>
@@ -43,6 +101,26 @@ const Booking = () => {
             </div>
           </div>
 
+          {/* Booking Confirmation */}
+          {bookingConfirmed && confirmedBooking && (
+            <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+              <div className="flex items-start space-x-3">
+                <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                <div className="space-y-2">
+                  <h4 className="font-medium text-green-800">Booking Confirmed!</h4>
+                  <p className="text-sm text-green-700 leading-relaxed">
+                    Your appointment for <strong>{confirmedBooking.service}</strong> has been confirmed for{' '}
+                    <strong>{new Date(confirmedBooking.date).toLocaleDateString()}</strong> at{' '}
+                    <strong>{confirmedBooking.time}</strong>.
+                  </p>
+                  <p className="text-sm text-green-700">
+                    We'll contact you shortly to arrange payment of the ZMW 100 deposit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Booking Form */}
             <div className="space-y-8">
@@ -50,6 +128,16 @@ const Booking = () => {
                 <h3 className="text-2xl font-serif font-medium mb-6">
                   Select Your Service
                 </h3>
+                
+                {/* Show message if service was pre-selected */}
+                {new URLSearchParams(location.search).get('service') && (
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                    <p className="text-sm text-green-700">
+                      <strong>{selectedService}</strong> has been pre-selected from our services page.
+                      You can change it below if needed.
+                    </p>
+                  </div>
+                )}
                 
                 <div className="space-y-4">
                   <div>
@@ -59,7 +147,7 @@ const Booking = () => {
                     <select
                       id="service"
                       value={selectedService}
-                      onChange={(e) => setSelectedService(e.target.value)}
+                      onChange={(e) => handleServiceChange(e.target.value)}
                       className="w-full p-3 border border-nude rounded focus:ring-2 focus:ring-warm-gray focus:border-warm-gray"
                     >
                       <option value="">Choose a service...</option>
@@ -71,18 +159,11 @@ const Booking = () => {
                     </select>
                   </div>
 
-                  {/* Calendar Placeholder */}
-                  <div className="border-2 border-dashed border-nude rounded-lg p-12 text-center">
-                    <div className="flex justify-center mb-6">
-                      <BookingCalendarIllustration className="w-16 h-16" />
-                    </div>
-                    <h4 className="text-lg font-medium text-black mb-2">
-                      Calendar Integration
-                    </h4>
-                    <p className="text-sm text-warm-gray">
-                      Interactive booking calendar will be integrated here
-                    </p>
-                  </div>
+                  {/* Booking Calendar */}
+                  <BookingCalendar 
+                    selectedService={selectedService}
+                    onBookingConfirm={handleBookingConfirm}
+                  />
                 </div>
               </div>
             </div>

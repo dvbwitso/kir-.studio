@@ -134,7 +134,10 @@ const Services = () => {
                         <span className="text-xs text-warm-gray uppercase tracking-wide">
                           {service.duration}
                         </span>
-                        <Link to="/booking" className="btn-primary text-xs px-6 py-2">
+                        <Link 
+                          to={`/booking?service=${encodeURIComponent(service.name)}`} 
+                          className="btn-primary text-xs px-6 py-2"
+                        >
                           Book Now
                         </Link>
                       </div>
