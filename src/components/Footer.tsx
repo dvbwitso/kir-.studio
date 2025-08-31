@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Phone, MessageCircle } from 'lucide-react';
-import mtnLogo from '../images/momo.jpg';
-import airtelLogo from '../images/airtel-money.jpg';
 
 const Footer = () => {
   const quickLinks = [
@@ -77,10 +75,10 @@ const Footer = () => {
               <h5 className="text-sm font-medium">Payment Methods</h5>
               <div className="flex space-x-4">
                 <div className="flex items-center rounded-lg p-3">
-                  <img src={mtnLogo} alt="MTN Money" className="w-24 h-16 object-contain rounded-lg" />
+                  <img src="/images/momo.jpg" alt="MTN Money" className="w-24 h-16 object-contain rounded-lg" />
                 </div>
                 <div className="flex items-center rounded-lg p-3">
-                  <img src={airtelLogo} alt="Airtel Money" className="w-24 h-16 object-contain rounded-lg" />
+                  <img src="/images/airtel-money.jpg" alt="Airtel Money" className="w-24 h-16 object-contain rounded-lg" />
                 </div>
               </div>
             </div>

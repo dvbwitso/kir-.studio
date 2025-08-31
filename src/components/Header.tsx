@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, User, LogOut, Settings } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
-import LoginModal from './LoginModal';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
   const location = useLocation();
-  const { user, logout } = useAuth();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -47,33 +43,6 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            
-            {/* Authentication Section */}
-            <div className="flex items-center space-x-4 ml-6 pl-6 border-l border-nude">
-              {user ? (
-                <div className="flex items-center space-x-3">
-                  <div className="flex items-center space-x-2 text-sm">
-                    <User className="w-4 h-4 text-warm-gray" />
-                    <span className="text-warm-gray">Admin</span>
-                  </div>
-                  <button
-                    onClick={logout}
-                    className="flex items-center space-x-1 text-sm text-warm-gray hover:text-black transition-colors"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    <span>Logout</span>
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={() => setShowLoginModal(true)}
-                  className="flex items-center space-x-2 text-sm font-medium text-warm-gray hover:text-black transition-colors"
-                >
-                  <User className="w-4 h-4" />
-                  <span>Admin Login</span>
-                </button>
-              )}
-            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -105,48 +74,9 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              
-              {/* Mobile Authentication */}
-              <div className="pt-4 border-t border-warm-gray/20">
-                {user ? (
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-2 text-sm text-warm-gray">
-                      <User className="w-4 h-4" />
-                      <span>Logged in as Admin</span>
-                    </div>
-                    <button
-                      onClick={() => {
-                        logout();
-                        setIsMenuOpen(false);
-                      }}
-                      className="flex items-center space-x-2 text-lg font-medium text-warm-gray hover:text-black transition-colors"
-                    >
-                      <LogOut className="w-4 h-4" />
-                      <span>Logout</span>
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => {
-                      setShowLoginModal(true);
-                      setIsMenuOpen(false);
-                    }}
-                    className="flex items-center space-x-2 text-lg font-medium text-warm-gray hover:text-black transition-colors"
-                  >
-                    <User className="w-4 h-4" />
-                    <span>Admin Login</span>
-                  </button>
-                )}
-              </div>
             </div>
           )}
       </nav>
-      
-      {/* Login Modal */}
-      <LoginModal 
-        isOpen={showLoginModal} 
-        onClose={() => setShowLoginModal(false)} 
-      />
     </header>
   );
 };

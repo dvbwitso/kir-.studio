@@ -1,14 +1,10 @@
 import { useState } from 'react';
-import { ShoppingCart, Plus, Minus, X, User, MapPin, Phone, Mail, CreditCard, Settings } from 'lucide-react';
+import { ShoppingCart, Plus, Minus, X, User, MapPin, Phone, Mail, CreditCard } from 'lucide-react';
 import { ProductBottleIllustration, ShoppingIllustration } from '../components/Illustrations';
-import AdminPanel from '../components/AdminPanel';
-import { useAuth } from '../contexts/AuthContext';
 
 const Shop = () => {
-  const { user } = useAuth();
   const [cart, setCart] = useState<{[key: string]: number}>({});
   const [showCheckout, setShowCheckout] = useState(false);
-  const [showAdminPanel, setShowAdminPanel] = useState(false);
   const [checkoutStep, setCheckoutStep] = useState<'cart' | 'details' | 'payment' | 'confirmation'>('cart');
   const [customerInfo, setCustomerInfo] = useState({
     name: '',
@@ -28,7 +24,7 @@ const Shop = () => {
     'body-oil-3': 20,
   });
 
-  const [products, setProducts] = useState([
+  const [products] = useState([
     {
       id: 'body-oil-1',
       name: 'Nourishing Body Oil',
@@ -199,17 +195,6 @@ const Shop = () => {
                 handpicked to complement your beauty routine.
               </p>
             </div>
-            <div>
-              {user && (
-                <button
-                  onClick={() => setShowAdminPanel(true)}
-                  className="flex items-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors text-sm"
-                >
-                  <Settings className="w-4 h-4" />
-                  <span>Admin Panel</span>
-                </button>
-              )}
-            </div>
           </div>
         </div>
 
@@ -331,91 +316,6 @@ const Shop = () => {
                 className="btn-primary"
               >
                 Proceed to Checkout
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Inventory Management (Admin Section) */}
-        {user && (
-          <div className="mt-16 bg-gray-50 rounded-lg p-8">
-            <h3 className="text-xl font-serif font-medium mb-6">Inventory Management</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {products.map((product) => {
-                const stockInfo = getStockStatus(product.id);
-                const currentStock = inventory[product.id] || 0;
-                
-                return (
-                  <div key={product.id} className="bg-white p-4 rounded-lg border border-nude">
-                    <div className="flex items-center space-x-3">
-                      <img 
-                        src={product.image} 
-                        alt={product.name}
-                        className="w-12 h-12 object-cover rounded-lg"
-                      />
-                      <div className="flex-1">
-                        <h4 className="font-medium text-sm">{product.name}</h4>
-                        <p className={`text-xs ${stockInfo.color}`}>
-                          {stockInfo.message}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-3 flex items-center justify-between">
-                      <span className="text-sm text-warm-gray">
-                        Stock: {currentStock}
-                      </span>
-                      <div className="flex items-center space-x-2">
-                        <button
-                          onClick={() => setInventory(prev => ({
-                            ...prev,
-                            [product.id]: Math.max(0, (prev[product.id] || 0) - 1)
-                          }))}
-                          className="w-6 h-6 border border-warm-gray rounded-full flex items-center justify-center hover:bg-warm-gray hover:text-white transition-colors text-xs"
-                        >
-                          <Minus size={10} />
-                        </button>
-                        <span className="w-8 text-center text-sm font-medium">
-                          {currentStock}
-                        </span>
-                        <button
-                          onClick={() => setInventory(prev => ({
-                            ...prev,
-                            [product.id]: (prev[product.id] || 0) + 1
-                          }))}
-                          className="w-6 h-6 border border-warm-gray rounded-full flex items-center justify-center hover:bg-warm-gray hover:text-white transition-colors text-xs"
-                        >
-                          <Plus size={10} />
-                        </button>
-                      </div>
-                    </div>
-                    
-                    {cart[product.id] && (
-                      <div className="mt-2 text-xs text-warm-gray">
-                        In cart: {cart[product.id]}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-            
-            <div className="mt-6 flex justify-center">
-              <button
-                onClick={() => {
-                  // Reset all inventory to default values
-                  setInventory({
-                    'body-oil-1': 15,
-                    'body-oil-2': 8,
-                    'serum-1': 12,
-                    'serum-2': 10,
-                    'serum-3': 3,
-                    'body-oil-3': 20,
-                  });
-                }}
-                className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
-              >
-                Restock All Items
               </button>
             </div>
           </div>
@@ -794,17 +694,6 @@ const Shop = () => {
               </div>
             </div>
           </div>
-        )}
-
-        {/* Admin Panel */}
-        {showAdminPanel && (
-          <AdminPanel
-            products={products}
-            inventory={inventory}
-            onProductsUpdate={setProducts}
-            onInventoryUpdate={setInventory}
-            onClose={() => setShowAdminPanel(false)}
-          />
         )}
       </div>
     </div>
