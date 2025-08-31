@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, MessageCircle, Send } from 'lucide-react';
 import { ContactIllustration } from '../components/Illustrations';
+import { env, getContactInfo } from '../utils/env';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const Contact = () => {
     email: '',
     message: '',
   });
+
+  const contactInfo = getContactInfo();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,18 +112,18 @@ const Contact = () => {
               
               <div className="space-y-4">
                 <a
-                  href="tel:+260"
+                  href={`tel:${contactInfo.phone || ''}`}
                   className="flex items-center space-x-4 p-4 bg-white border border-nude rounded-lg hover:bg-nude/20 transition-all duration-300"
                 >
                   <Phone className="w-5 h-5 text-warm-gray" />
                   <div>
                     <p className="font-medium">Call Us</p>
-                    <p className="text-sm text-warm-gray">+260 97 4823502</p>
+                    <p className="text-sm text-warm-gray">{contactInfo.displayPhone}</p>
                   </div>
                 </a>
 
                 <a
-                  href="https://wa.me/+260974823502"
+                  href={`https://wa.me/${contactInfo.phone?.replace(/[^0-9]/g, '') || ''}`}
                   className="flex items-center space-x-4 p-4 bg-white border border-nude rounded-lg hover:bg-nude/20 transition-all duration-300"
                 >
                   <MessageCircle className="w-5 h-5 text-warm-gray" />
@@ -131,13 +134,13 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="mailto:hello@kirestudio.com"
+                  href={`mailto:${contactInfo.email}`}
                   className="flex items-center space-x-4 p-4 bg-white border border-nude rounded-lg hover:bg-nude/20 transition-all duration-300"
                 >
                   <Mail className="w-5 h-5 text-warm-gray" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-sm text-warm-gray">hello@kirestudio.com</p>
+                    <p className="text-sm text-warm-gray">{contactInfo.email}</p>
                   </div>
                 </a>
               </div>
@@ -153,8 +156,7 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">Location</p>
                     <p className="text-sm text-warm-gray leading-relaxed">
-                      Ibex Hub, Ibex Hill, Top Floor<br />
-                      Zambeef Building, Lusaka, Zambia
+                      {contactInfo.address}
                     </p>
                   </div>
                 </div>

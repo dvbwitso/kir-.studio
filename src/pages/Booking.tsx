@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { Instagram, Facebook, Clock, AlertCircle, CheckCircle, ArrowLeft } from 'lucide-react';
 import BookingCalendar from '../components/BookingCalendar';
+import { env, getContactInfo } from '../utils/env';
 
 const Booking = () => {
   const location = useLocation();
@@ -13,6 +14,8 @@ const Booking = () => {
     date: string;
     time: string;
   } | null>(null);
+
+  const contactInfo = getContactInfo();
 
   // Extract service from URL parameters
   useEffect(() => {
@@ -94,7 +97,7 @@ const Booking = () => {
               <div className="space-y-2">
                 <h4 className="font-medium text-black">Booking Policy</h4>
                 <p className="text-sm text-warm-gray leading-relaxed">
-                  All bookings require a non-refundable deposit of ZMW 100 via MTN Money or Airtel Money 
+                  All bookings require a non-refundable deposit of {env.business.currency} {env.business.depositAmount} via MTN Money or Airtel Money 
                   to confirm your appointment. This amount will be deducted from your total service cost.
                 </p>
               </div>
@@ -129,7 +132,7 @@ const Booking = () => {
                     </div>
                   </div>
                   <p className="text-sm text-green-700 leading-relaxed">
-                    We'll contact you shortly via phone to arrange payment of the ZMW 100 deposit 
+                    We'll contact you shortly via phone to arrange payment of the {env.business.currency} {env.business.depositAmount} deposit 
                     and confirm your appointment details.
                   </p>
                 </div>
@@ -216,7 +219,7 @@ const Booking = () => {
 
               <div className="space-y-4">
                 <a
-                  href="https://instagram.com/kirestudio"
+                  href="https://www.instagram.com/kire_studiozm"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center space-x-3 w-full bg-white border border-nude p-6 rounded-lg hover:bg-nude/20 hover:border-warm-gray transition-all duration-300 group hover:shadow-md"
@@ -226,7 +229,7 @@ const Booking = () => {
                 </a>
 
                 <a
-                  href="https://facebook.com/kirestudio"
+                  href="https://web.facebook.com/profile.php?id=61576159620581"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center space-x-3 w-full bg-white border border-nude p-6 rounded-lg hover:bg-nude/20 hover:border-warm-gray transition-all duration-300 group hover:shadow-md"
@@ -267,11 +270,11 @@ const Booking = () => {
                   </p>
                   <div className="pt-2">
                     <a 
-                      href="tel:+260XXX"
+                      href={`tel:${contactInfo.phone || ''}`}
                       className="inline-flex items-center space-x-2 text-warm-gray hover:text-black transition-colors"
                     >
                       <span>📞</span>
-                      <span>+260 XXX XXX XXX</span>
+                      <span>{contactInfo.displayPhone}</span>
                     </a>
                   </div>
                 </div>

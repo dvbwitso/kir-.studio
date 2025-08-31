@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Clock, X, CheckCircle } from 'lucide-react';
+import { env } from '../utils/env';
 
 interface TimeSlot {
   time: string;
@@ -392,7 +393,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ selectedService, onBo
                     value={customerInfo.phone}
                     onChange={(e) => setCustomerInfo(prev => ({ ...prev, phone: e.target.value }))}
                     className="w-full p-3 border border-nude rounded-lg focus:ring-2 focus:ring-warm-gray focus:border-transparent transition-all"
-                    placeholder="+260 XXX XXX XXX"
+                    placeholder={env.contact.phone.includes('XXX') ? '+260 XXX XXX XXX' : env.contact.phone}
                     required
                   />
                 </div>
@@ -420,7 +421,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ selectedService, onBo
                   <div className="space-y-2">
                     <h5 className="font-medium text-amber-800">Deposit Required</h5>
                     <p className="text-sm text-amber-700 leading-relaxed">
-                      A deposit of <strong>ZMW 100</strong> is required to confirm your booking. 
+                      A deposit of <strong>{env.business.currency} {env.business.depositAmount}</strong> is required to confirm your booking. 
                       This amount will be deducted from your total service cost. We'll contact you 
                       with payment instructions after you confirm your booking.
                     </p>

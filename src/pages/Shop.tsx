@@ -3,6 +3,7 @@ import { ShoppingCart, Plus, Minus, X, User, MapPin, Phone, Mail, CreditCard } f
 import { ProductBottleIllustration, ShoppingIllustration } from '../components/Illustrations';
 import FloatingBookingButton from '../components/FloatingBookingButton';
 import { fetchProducts, subscribeToProducts, Product, isItemNew, getDiscountedPrice, formatDiscount } from '../lib/sanity';
+import { env } from '../utils/env';
 
 const Shop = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -483,7 +484,7 @@ const Shop = () => {
                       value={customerInfo.phone}
                       onChange={(e) => setCustomerInfo(prev => ({ ...prev, phone: e.target.value }))}
                       className="w-full border border-nude rounded-lg px-4 py-3 focus:ring-2 focus:ring-warm-gray focus:border-transparent transition-all"
-                      placeholder="+260 XXX XXX XXX"
+                      placeholder={env.contact.phone.includes('XXX') ? '+260 XXX XXX XXX' : env.contact.phone}
                     />
                   </div>
                   

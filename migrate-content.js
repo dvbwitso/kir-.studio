@@ -1,12 +1,12 @@
 const { createClient } = require('@sanity/client');
 
-// Initialize Sanity client
+// Initialize Sanity client with environment variables
 const client = createClient({
-  projectId: '3klw8jzl',
-  dataset: 'production',
+  projectId: process.env.VITE_SANITY_PROJECT_ID || '3klw8jzl',
+  dataset: process.env.VITE_SANITY_DATASET || 'production',
   useCdn: false,
-  token: process.env.SANITY_TOKEN, // You'll need to set this
-  apiVersion: '2024-01-01'
+  token: process.env.SANITY_TOKEN, // Required for write operations
+  apiVersion: process.env.VITE_SANITY_API_VERSION || '2024-01-01'
 });
 
 // Services data from Services.tsx

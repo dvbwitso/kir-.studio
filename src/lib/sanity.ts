@@ -1,11 +1,12 @@
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
+import { env } from '../utils/env'
 
 export const client = createClient({
-  projectId: '3klw8jzl',
-  dataset: 'production',
-  useCdn: true, // Enable CDN for better CORS handling
-  apiVersion: '2024-01-01',
+  projectId: env.sanity.projectId,
+  dataset: env.sanity.dataset,
+  useCdn: env.sanity.useCdn,
+  apiVersion: env.sanity.apiVersion,
   perspective: 'published',
 })
 
