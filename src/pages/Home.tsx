@@ -1,6 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FacialIllustration, WaxingIllustration, MassageIllustration, LashIllustration } from '../components/Illustrations';
+import QuickBookingButton from '../components/QuickBookingButton';
 
 const Home = () => {
   const services = [
@@ -39,9 +39,9 @@ const Home = () => {
               Refined Beauty. Elevated Care.
             </p>
             <div className="pt-8">
-              <Link to="/booking" className="btn-primary">
+              <QuickBookingButton size="lg">
                 Book Now
-              </Link>
+              </QuickBookingButton>
             </div>
           </div>
         </div>

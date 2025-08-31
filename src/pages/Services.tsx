@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { TreatmentChairIllustration } from '../components/Illustrations';
+import QuickBookingButton from '../components/QuickBookingButton';
+import FloatingBookingButton from '../components/FloatingBookingButton';
 import { fetchServices, subscribeToServices, Service, isItemNew, getDiscountedPrice, formatDiscount } from '../lib/sanity';
 
 const Services = () => {
@@ -151,12 +152,13 @@ const Services = () => {
                             <span className="text-xs text-warm-gray uppercase tracking-wide">
                               Duration: {service.duration}
                             </span>
-                            <Link
-                              to="/booking"
-                              className="btn-primary text-xs px-6 py-2"
+                            <QuickBookingButton 
+                              serviceName={service.name}
+                              size="sm"
+                              className="text-xs px-4 py-2"
                             >
                               Book Now
-                            </Link>
+                            </QuickBookingButton>
                           </div>
                         </div>
                       </div>
@@ -177,14 +179,17 @@ const Services = () => {
             Experience the ultimate in luxury beauty treatments. Book your appointment today 
             and let us help you look and feel your absolute best.
           </p>
-          <Link
-            to="/booking"
-            className="btn-primary"
+          <QuickBookingButton 
+            variant="primary"
+            size="lg"
           >
             Book Appointment
-          </Link>
+          </QuickBookingButton>
         </div>
       </div>
+
+      {/* Floating Booking Button for Mobile */}
+      <FloatingBookingButton />
     </div>
   );
 };

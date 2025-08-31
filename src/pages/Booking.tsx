@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { Instagram, Facebook, Clock, AlertCircle, CheckCircle, ArrowLeft } from 'lucide-react';
 import BookingCalendar from '../components/BookingCalendar';
@@ -103,18 +103,34 @@ const Booking = () => {
 
           {/* Booking Confirmation */}
           {bookingConfirmed && confirmedBooking && (
-            <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8 animate-fadeIn">
               <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
-                <div className="space-y-2">
-                  <h4 className="font-medium text-green-800">Booking Confirmed!</h4>
+                <div className="space-y-3">
+                  <h4 className="font-medium text-green-800 text-lg">Booking Confirmed!</h4>
+                  <div className="bg-white rounded-lg p-4 border border-green-200">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm">
+                      <div>
+                        <span className="text-green-600 font-medium">Service:</span>
+                        <p className="text-green-800">{confirmedBooking.service}</p>
+                      </div>
+                      <div>
+                        <span className="text-green-600 font-medium">Date:</span>
+                        <p className="text-green-800">{new Date(confirmedBooking.date).toLocaleDateString('en-US', { 
+                          weekday: 'long', 
+                          month: 'long', 
+                          day: 'numeric' 
+                        })}</p>
+                      </div>
+                      <div>
+                        <span className="text-green-600 font-medium">Time:</span>
+                        <p className="text-green-800">{confirmedBooking.time}</p>
+                      </div>
+                    </div>
+                  </div>
                   <p className="text-sm text-green-700 leading-relaxed">
-                    Your appointment for <strong>{confirmedBooking.service}</strong> has been confirmed for{' '}
-                    <strong>{new Date(confirmedBooking.date).toLocaleDateString()}</strong> at{' '}
-                    <strong>{confirmedBooking.time}</strong>.
-                  </p>
-                  <p className="text-sm text-green-700">
-                    We'll contact you shortly to arrange payment of the ZMW 100 deposit.
+                    We'll contact you shortly via phone to arrange payment of the ZMW 100 deposit 
+                    and confirm your appointment details.
                   </p>
                 </div>
               </div>
@@ -124,7 +140,7 @@ const Booking = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Booking Form */}
             <div className="space-y-8">
-              <div className="bg-white border border-nude rounded-lg p-8">
+              <div className="bg-white border border-nude rounded-lg p-6 sm:p-8">
                 <h3 className="text-2xl font-serif font-medium mb-6">
                   Select Your Service
                 </h3>
@@ -132,31 +148,50 @@ const Booking = () => {
                 {/* Show message if service was pre-selected */}
                 {new URLSearchParams(location.search).get('service') && (
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-                    <p className="text-sm text-green-700">
-                      <strong>{selectedService}</strong> has been pre-selected from our services page.
-                      You can change it below if needed.
-                    </p>
+                    <div className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <div>
+                        <p className="text-sm text-green-700 font-medium">
+                          <strong>{selectedService}</strong> has been pre-selected
+                        </p>
+                        <p className="text-xs text-green-600 mt-1">
+                          You can change it below if needed
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 )}
                 
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-black mb-2">
+                    <label htmlFor="service" className="block text-sm font-medium text-black mb-3">
                       Service Type
                     </label>
-                    <select
-                      id="service"
-                      value={selectedService}
-                      onChange={(e) => handleServiceChange(e.target.value)}
-                      className="w-full p-3 border border-nude rounded focus:ring-2 focus:ring-warm-gray focus:border-warm-gray"
-                    >
-                      <option value="">Choose a service...</option>
-                      {services.map((service) => (
-                        <option key={service} value={service}>
-                          {service}
-                        </option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select
+                        id="service"
+                        value={selectedService}
+                        onChange={(e) => handleServiceChange(e.target.value)}
+                        className="w-full p-4 border border-nude rounded-lg focus:ring-2 focus:ring-warm-gray focus:border-transparent transition-all appearance-none bg-white"
+                      >
+                        <option value="">Choose a service...</option>
+                        {services.map((service) => (
+                          <option key={service} value={service}>
+                            {service}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                        <svg className="w-4 h-4 text-warm-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
+                    {!selectedService && (
+                      <p className="text-xs text-warm-gray mt-2">
+                        Please select a service to view available appointment times
+                      </p>
+                    )}
                   </div>
 
                   {/* Booking Calendar */}
@@ -181,40 +216,63 @@ const Booking = () => {
 
               <div className="space-y-4">
                 <a
-                  href="#"
-                  className="flex items-center justify-center space-x-3 w-full bg-white border border-nude p-6 rounded-lg hover:bg-nude/20 transition-all duration-300 group"
+                  href="https://instagram.com/kirestudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-3 w-full bg-white border border-nude p-6 rounded-lg hover:bg-nude/20 hover:border-warm-gray transition-all duration-300 group hover:shadow-md"
                 >
-                  <Instagram className="w-6 h-6 text-warm-gray group-hover:text-black" />
+                  <Instagram className="w-6 h-6 text-warm-gray group-hover:text-black transition-colors" />
                   <span className="font-medium text-black">Book via Instagram</span>
                 </a>
 
                 <a
-                  href="#"
-                  className="flex items-center justify-center space-x-3 w-full bg-white border border-nude p-6 rounded-lg hover:bg-nude/20 transition-all duration-300 group"
+                  href="https://facebook.com/kirestudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-3 w-full bg-white border border-nude p-6 rounded-lg hover:bg-nude/20 hover:border-warm-gray transition-all duration-300 group hover:shadow-md"
                 >
-                  <Facebook className="w-6 h-6 text-warm-gray group-hover:text-black" />
+                  <Facebook className="w-6 h-6 text-warm-gray group-hover:text-black transition-colors" />
                   <span className="font-medium text-black">Book via Facebook</span>
                 </a>
               </div>
 
               {/* Operating Hours */}
-              <div className="bg-nude/30 rounded-lg p-6 mt-8">
+              <div className="bg-nude/30 rounded-lg p-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <Clock className="w-5 h-5 text-warm-gray" />
                   <h4 className="font-medium text-black">Operating Hours</h4>
                 </div>
-                <div className="space-y-2 text-sm text-warm-gray">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 7:00 PM</span>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-warm-gray">Monday - Friday</span>
+                    <span className="font-medium text-black">9:00 AM - 7:00 PM</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>9:00 AM - 5:00 PM</span>
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-warm-gray">Saturday</span>
+                    <span className="font-medium text-black">9:00 AM - 5:00 PM</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>Closed</span>
+                  <div className="flex justify-between items-center py-1">
+                    <span className="text-warm-gray">Sunday</span>
+                    <span className="font-medium text-red-600">Closed</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Information */}
+              <div className="bg-white border border-nude rounded-lg p-6">
+                <h4 className="font-medium text-black mb-4">Need Help?</h4>
+                <div className="space-y-3 text-sm">
+                  <p className="text-warm-gray leading-relaxed">
+                    Having trouble with online booking? Call us directly and we'll help you schedule your appointment.
+                  </p>
+                  <div className="pt-2">
+                    <a 
+                      href="tel:+260XXX"
+                      className="inline-flex items-center space-x-2 text-warm-gray hover:text-black transition-colors"
+                    >
+                      <span>📞</span>
+                      <span>+260 XXX XXX XXX</span>
+                    </a>
                   </div>
                 </div>
               </div>
