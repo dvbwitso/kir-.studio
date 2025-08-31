@@ -5,6 +5,7 @@ export default defineCliConfig({
     projectId: '3klw8jzl',
     dataset: 'production'
   },
+  studioHost: 'kire-studio',
   /**
    * Enable auto-updates for studios.
    * Learn more at https://www.sanity.io/docs/cli#auto-updates
