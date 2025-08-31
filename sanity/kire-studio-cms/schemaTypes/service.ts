@@ -48,6 +48,44 @@ export default defineType({
       validation: Rule => Rule.required()
     },
     {
+      name: 'originalPrice',
+      title: 'Original Price (if on discount)',
+      type: 'string',
+      placeholder: 'e.g., ZMW 500',
+      description: 'Leave empty if not on discount'
+    },
+    {
+      name: 'discountPercentage',
+      title: 'Discount Percentage',
+      type: 'number',
+      validation: Rule => Rule.min(0).max(100),
+      description: 'Enter discount percentage (0-100). Leave empty if no discount.'
+    },
+    {
+      name: 'isNew',
+      title: 'New Service',
+      type: 'boolean',
+      initialValue: false,
+      description: 'Mark as new service to show "NEW" tag'
+    },
+    {
+      name: 'newUntil',
+      title: 'Show as New Until',
+      type: 'datetime',
+      description: 'Service will show "NEW" tag until this date. Leave empty to manually control.',
+      hidden: ({document}) => !document?.isNew
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
+      validation: Rule => Rule.required()
+    },
+    {
       name: 'image',
       title: 'Service Image',
       type: 'image',
