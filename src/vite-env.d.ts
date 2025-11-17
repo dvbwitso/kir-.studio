@@ -1,18 +1,9 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  // Sanity Configuration
-  readonly VITE_SANITY_PROJECT_ID: string
-  readonly VITE_SANITY_DATASET: string
-  readonly VITE_SANITY_API_VERSION: string
-  readonly VITE_SANITY_USE_CDN: string
-  readonly SANITY_TOKEN: string
-
   // Application Configuration
   readonly VITE_APP_NAME: string
-  readonly VITE_APP_URL: string
-
-  // Contact Information
+  readonly VITE_APP_URL: string  // Contact Information
   readonly VITE_CONTACT_PHONE: string
   readonly VITE_CONTACT_EMAIL: string
   readonly VITE_CONTACT_ADDRESS: string

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { TreatmentChairIllustration } from '../components/Illustrations';
 import QuickBookingButton from '../components/QuickBookingButton';
 import FloatingBookingButton from '../components/FloatingBookingButton';
-import { fetchServices, subscribeToServices, Service, isItemNew, getDiscountedPrice, formatDiscount } from '../lib/sanity';
+import { fetchServices, Service, isItemNew } from '../lib/dataService';
 
 const Services = () => {
   const [services, setServices] = useState<Service[]>([]);
@@ -17,15 +17,6 @@ const Services = () => {
     };
 
     loadServices();
-
-    // Subscribe to real-time updates
-    const subscription = subscribeToServices((updatedServices) => {
-      setServices(updatedServices);
-      console.log('Services updated in real-time!');
-    });
-
-    // Cleanup subscription on unmount
-    return () => subscription?.unsubscribe();
   }, []);
 
   // Group services by category
@@ -81,11 +72,10 @@ const Services = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {categoryServices.map((service) => {
                     const isNew = isItemNew(service);
-                    const priceInfo = getDiscountedPrice(service);
                     
                     return (
                       <div
-                        key={service._id}
+                        key={service.id}
                         className="bg-white border border-nude rounded-lg hover:shadow-lg transition-all duration-300 overflow-hidden relative"
                       >
                         {/* Tags */}
@@ -95,19 +85,14 @@ const Services = () => {
                               NEW
                             </span>
                           )}
-                          {priceInfo.hasDiscount && priceInfo.discountPercentage && (
-                            <span className="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium block">
-                              {formatDiscount(priceInfo.discountPercentage)}
-                            </span>
-                          )}
                         </div>
 
                         {/* Service Image */}
                         <div className="aspect-w-16 aspect-h-12 bg-gray-100">
-                          {service.image?.asset?.url ? (
+                          {service.image ? (
                             <img
-                              src={service.image.asset.url}
-                              alt={service.image.alt || `${service.name} service`}
+                              src={service.image}
+                              alt={`${service.name} service`}
                               className="w-full h-48 object-cover object-center"
                               onError={(e) => {
                                 // Fallback to a placeholder if image doesn't exist
@@ -127,20 +112,9 @@ const Services = () => {
                               {service.name}
                             </h3>
                             <div className="text-right">
-                              {priceInfo.hasDiscount && priceInfo.originalPrice ? (
-                                <div className="space-y-1">
-                                  <span className="text-lg font-medium text-black">
-                                    {priceInfo.currentPrice}
-                                  </span>
-                                  <div className="text-sm text-gray-500 line-through">
-                                    {priceInfo.originalPrice}
-                                  </div>
-                                </div>
-                              ) : (
-                                <span className="text-lg font-medium text-black">
-                                  {priceInfo.currentPrice}
-                                </span>
-                              )}
+                              <span className="text-lg font-medium text-black">
+                                {service.price}
+                              </span>
                             </div>
                           </div>
                           

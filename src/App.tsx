@@ -8,7 +8,6 @@ import Booking from './pages/Booking';
 import Shop from './pages/Shop';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import EnvironmentChecker from './components/EnvironmentChecker';
 import { validateEnv } from './utils/env';
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <EnvironmentChecker />
       </div>
     </Router>
   );

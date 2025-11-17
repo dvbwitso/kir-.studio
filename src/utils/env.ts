@@ -2,15 +2,6 @@
 // Centralized access to all environment variables
 
 export const env = {
-  // Sanity Configuration
-  sanity: {
-    projectId: import.meta.env.VITE_SANITY_PROJECT_ID || '3klw8jzl',
-    dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
-    apiVersion: import.meta.env.VITE_SANITY_API_VERSION || '2024-01-01',
-    useCdn: import.meta.env.VITE_SANITY_USE_CDN === 'true' || true,
-    token: import.meta.env.SANITY_TOKEN, // Server-side only
-  },
-
   // Application Configuration
   app: {
     name: import.meta.env.VITE_APP_NAME || 'KIRÈ Studio',
@@ -61,19 +52,9 @@ export const env = {
 
 // Validation function to check required environment variables
 export const validateEnv = () => {
-  const requiredVars = [
-    'VITE_SANITY_PROJECT_ID',
-    'VITE_SANITY_DATASET',
-  ];
-
-  const missing = requiredVars.filter(varName => !import.meta.env[varName]);
-
-  if (missing.length > 0) {
-    console.warn('Missing environment variables:', missing);
-    console.warn('Please check your .env.local file');
-  }
-
-  return missing.length === 0;
+  // No required environment variables for static JSON data
+  // All variables have defaults
+  return { isValid: true, missing: [] };
 };
 
 // Helper function to get safe contact info

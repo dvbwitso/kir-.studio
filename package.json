@@ -1,5 +1,5 @@
 {
-  "name": "kire-studio",
+  "name": "kir-.studio",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,19 +9,13 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "check-env": "node scripts/check-env.js",
-    "setup-env": "bash scripts/setup-env.sh",
-    "sanity:start": "cd sanity && sanity start",
-    "sanity:deploy": "cd sanity && sanity deploy",
-    "sanity:init": "cd sanity && sanity init"
+    "setup-env": "bash scripts/setup-env.sh"
   },
   "dependencies": {
-    "@sanity/client": "^7.10.0",
-    "@sanity/image-url": "^1.2.0",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.8.2",
-    "sanity": "^4.6.0"
+    "react-router-dom": "^7.8.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",

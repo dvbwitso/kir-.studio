@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ShoppingCart, Plus, Minus, X, User, MapPin, Phone, Mail, CreditCard } from 'lucide-react';
 import { ProductBottleIllustration, ShoppingIllustration } from '../components/Illustrations';
 import FloatingBookingButton from '../components/FloatingBookingButton';
-import { fetchProducts, subscribeToProducts, Product, isItemNew, getDiscountedPrice, formatDiscount } from '../lib/sanity';
+import { fetchProducts, Product, isItemNew } from '../lib/dataService';
 import { env } from '../utils/env';
 
 const Shop = () => {
@@ -29,19 +29,10 @@ const Shop = () => {
     };
 
     loadProducts();
-
-    // Subscribe to real-time updates
-    const subscription = subscribeToProducts((updatedProducts) => {
-      setProducts(updatedProducts);
-      console.log('Products updated in real-time!');
-    });
-
-    // Cleanup subscription on unmount
-    return () => subscription?.unsubscribe();
   }, []);
 
   const updateCart = (productId: string, change: number) => {
-    const product = products.find(p => p._id === productId);
+    const product = products.find(p => p.id === productId);
     if (!product) return;
 
     const currentCartQuantity = cart[productId] || 0;
@@ -60,7 +51,7 @@ const Shop = () => {
 
   const getCartTotal = () => {
     return Object.entries(cart).reduce((total, [productId, quantity]) => {
-      const product = products.find(p => p._id === productId);
+      const product = products.find(p => p.id === productId);
       if (product) {
         const price = parseFloat(product.price.replace(/[^0-9.]/g, ''));
         return total + (price * quantity);
@@ -190,13 +181,12 @@ const Shop = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {categoryProducts.map((product) => {
                     const stockStatus = getStockStatus(product);
-                    const cartQuantity = cart[product._id] || 0;
+                    const cartQuantity = cart[product.id] || 0;
                     const isNew = isItemNew(product);
-                    const priceInfo = getDiscountedPrice(product);
                     
                     return (
                       <div
-                        key={product._id}
+                        key={product.id}
                         className="bg-white border border-nude rounded-lg hover:shadow-lg transition-all duration-300 overflow-hidden relative group"
                       >
                         {/* Tags */}
@@ -204,11 +194,6 @@ const Shop = () => {
                           {isNew && (
                             <span className="bg-green-500 text-white text-xs px-3 py-1 rounded-full font-medium">
                               NEW
-                            </span>
-                          )}
-                          {priceInfo.hasDiscount && priceInfo.discountPercentage && (
-                            <span className="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium block">
-                              {formatDiscount(priceInfo.discountPercentage)}
                             </span>
                           )}
                           {stockStatus.status === 'low-stock' && (
@@ -220,10 +205,10 @@ const Shop = () => {
 
                         {/* Product Image */}
                         <div className="aspect-square bg-gray-100 relative overflow-hidden">
-                          {product.image?.asset?.url ? (
+                          {product.image ? (
                             <img
-                              src={product.image.asset.url}
-                              alt={product.image.alt || product.name}
+                              src={product.image}
+                              alt={product.name}
                               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                               onError={(e) => {
                                 // Fallback to a placeholder if image doesn't exist
@@ -255,20 +240,9 @@ const Shop = () => {
                                 </h3>
                               </div>
                               <div className="text-right">
-                                {priceInfo.hasDiscount && priceInfo.originalPrice ? (
-                                  <div className="space-y-1">
-                                    <span className="text-lg font-medium text-black">
-                                      {priceInfo.currentPrice}
-                                    </span>
-                                    <div className="text-sm text-gray-500 line-through">
-                                      {priceInfo.originalPrice}
-                                    </div>
-                                  </div>
-                                ) : (
-                                  <span className="text-lg font-medium text-black">
-                                    {priceInfo.currentPrice}
-                                  </span>
-                                )}
+                                <span className="text-lg font-medium text-black">
+                                  {product.price}
+                                </span>
                               </div>
                             </div>
                             
@@ -293,7 +267,7 @@ const Shop = () => {
                               <div className="space-y-3">
                                 {cartQuantity === 0 ? (
                                   <button
-                                    onClick={() => updateCart(product._id, 1)}
+                                    onClick={() => updateCart(product.id, 1)}
                                     className="w-full bg-warm-gray text-white py-3 px-6 rounded-lg font-medium hover:bg-black transition-all duration-200 hover:scale-105 transform active:scale-95"
                                   >
                                     Add to Cart
@@ -302,14 +276,14 @@ const Shop = () => {
                                   <div className="space-y-3">
                                     <div className="flex items-center justify-center space-x-4 bg-nude/20 rounded-lg p-3">
                                       <button
-                                        onClick={() => updateCart(product._id, -1)}
+                                        onClick={() => updateCart(product.id, -1)}
                                         className="bg-gray-200 text-gray-700 p-2 rounded-lg hover:bg-gray-300 transition-all duration-200 active:scale-95"
                                       >
                                         <Minus className="w-4 h-4" />
                                       </button>
                                       <span className="font-medium text-lg min-w-[3rem] text-center">{cartQuantity}</span>
                                       <button
-                                        onClick={() => updateCart(product._id, 1)}
+                                        onClick={() => updateCart(product.id, 1)}
                                         disabled={cartQuantity >= product.stock}
                                         className="bg-warm-gray text-white p-2 rounded-lg hover:bg-black transition-all duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:text-gray-500 active:scale-95"
                                       >
@@ -381,15 +355,15 @@ const Shop = () => {
                     <div>
                       <div className="space-y-4 mb-6">
                         {Object.entries(cart).map(([productId, quantity]) => {
-                          const product = products.find(p => p._id === productId);
+                          const product = products.find(p => p.id === productId);
                           if (!product) return null;
                           
                           return (
                             <div key={productId} className="flex items-center justify-between border-b border-nude pb-4">
                               <div className="flex items-center space-x-4">
-                                {product.image?.asset?.url ? (
+                                {product.image ? (
                                   <img
-                                    src={product.image.asset.url}
+                                    src={product.image}
                                     alt={product.name}
                                     className="w-16 h-16 object-cover rounded-lg"
                                   />

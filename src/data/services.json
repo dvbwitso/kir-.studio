@@ -1,0 +1,502 @@
+[
+  {
+    "id": "hollywood-wax",
+    "name": "Hollywood Wax",
+    "description": "Complete intimate waxing service with premium care",
+    "duration": "45 min",
+    "price": "K450",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/hollywood-wax.png",
+    "order": 1
+  },
+  {
+    "id": "brazilian-wax",
+    "name": "Brazilian Wax",
+    "description": "Professional Brazilian waxing with utmost hygiene",
+    "duration": "40 min",
+    "price": "K430",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/brazilian-wax.webp",
+    "order": 2
+  },
+  {
+    "id": "bikini-wax",
+    "name": "Bikini Wax",
+    "description": "Classic bikini line waxing",
+    "duration": "30 min",
+    "price": "K350",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/bikini-wax.png",
+    "order": 3
+  },
+  {
+    "id": "full-leg-wax",
+    "name": "Full Leg Wax",
+    "description": "Complete leg waxing for smooth, hair-free skin",
+    "duration": "50 min",
+    "price": "K450",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/full-leg-wax.png",
+    "order": 4
+  },
+  {
+    "id": "three-quarter-leg-wax",
+    "name": "3 Quarter Leg Wax",
+    "description": "Three-quarter leg waxing service",
+    "duration": "40 min",
+    "price": "K430",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/3-quater-leg-wx.png",
+    "order": 5
+  },
+  {
+    "id": "half-arm-wax",
+    "name": "Half Arm Wax",
+    "description": "Lower arm waxing for silky smooth arms",
+    "duration": "25 min",
+    "price": "K330",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/half-arm-wax.webp",
+    "order": 6
+  },
+  {
+    "id": "full-arm-wax",
+    "name": "Full Arm Wax",
+    "description": "Complete arm waxing service",
+    "duration": "35 min",
+    "price": "K400",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/full-arm-wax.jpeg",
+    "order": 7
+  },
+  {
+    "id": "back-wax",
+    "name": "Back Wax",
+    "description": "Professional back waxing service",
+    "duration": "40 min",
+    "price": "K450",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/back-wax.png",
+    "order": 8
+  },
+  {
+    "id": "buttocks-wax",
+    "name": "Buttocks Wax",
+    "description": "Professional buttocks waxing",
+    "duration": "30 min",
+    "price": "K330",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/buttocks-wax.jpg",
+    "order": 9
+  },
+  {
+    "id": "abdomen-wax",
+    "name": "Abdomen Wax",
+    "description": "Gentle abdomen waxing service",
+    "duration": "20 min",
+    "price": "K200",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/abdomen-wax.jpeg",
+    "order": 10
+  },
+  {
+    "id": "chin-underchin-wax",
+    "name": "Chin + Underchin Wax",
+    "description": "Facial hair removal for chin and underchin area",
+    "duration": "15 min",
+    "price": "K250",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/Chin-Underchin-Wax.webp",
+    "order": 11
+  },
+  {
+    "id": "lip-wax",
+    "name": "Lip Wax",
+    "description": "Upper lip waxing service",
+    "duration": "10 min",
+    "price": "K160",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/lipwax.png",
+    "order": 12
+  },
+  {
+    "id": "nose-wax",
+    "name": "Nose Wax",
+    "description": "Professional nose hair waxing",
+    "duration": "10 min",
+    "price": "K160",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/nose-wax.jpg",
+    "order": 13
+  },
+  {
+    "id": "ear-wax",
+    "name": "Ear Wax",
+    "description": "Gentle ear hair removal",
+    "duration": "10 min",
+    "price": "K160",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/ear-wax.png",
+    "order": 14
+  },
+  {
+    "id": "chest-wax",
+    "name": "Chest Wax",
+    "description": "Professional chest waxing",
+    "duration": "35 min",
+    "price": "K350",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/chest-wax.jpg",
+    "order": 15
+  },
+  {
+    "id": "cheeks-wax",
+    "name": "Cheeks Wax",
+    "description": "Facial cheek waxing for smooth skin",
+    "duration": "15 min",
+    "price": "K250",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/cheeks-wax.jpg",
+    "order": 16
+  },
+  {
+    "id": "neck-wax",
+    "name": "Neck Wax",
+    "description": "Professional neck waxing",
+    "duration": "15 min",
+    "price": "K150",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/neck-waxing-treatment.webp",
+    "order": 17
+  },
+  {
+    "id": "full-face-wax",
+    "name": "Full Face Wax",
+    "description": "Complete facial waxing service",
+    "duration": "40 min",
+    "price": "K550",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/full-face-wax.jpg",
+    "order": 18
+  },
+  {
+    "id": "under-arm-wax",
+    "name": "Under Arm Wax",
+    "description": "Professional underarm waxing",
+    "duration": "20 min",
+    "price": "K230",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/under-arm-wax.jpg",
+    "order": 19
+  },
+  {
+    "id": "areola-wax",
+    "name": "Areola Wax",
+    "description": "Gentle areola waxing service",
+    "duration": "15 min",
+    "price": "K150",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/areola-wax.jpg",
+    "order": 20
+  },
+  {
+    "id": "eyebrow-wax",
+    "name": "Eyebrow Wax",
+    "description": "Professional eyebrow shaping and waxing",
+    "duration": "15 min",
+    "price": "K210",
+    "category": "Waxing for Ladies",
+    "image": "/images/services/eyebrow-wax.jpg",
+    "order": 21
+  },
+  {
+    "id": "ultimate-package",
+    "name": "Ultimate Package",
+    "description": "Hollywood, Underarms, Abdomen - Complete care package",
+    "duration": "90 min",
+    "price": "K750",
+    "category": "Waxing Packages",
+    "image": "/images/services/ultimate-package.jpg",
+    "order": 1
+  },
+  {
+    "id": "full-body-package",
+    "name": "Full Body Package",
+    "description": "Hollywood, Underarms, Full Leg, Abdomen - Total transformation",
+    "duration": "150 min",
+    "price": "K1,150",
+    "category": "Waxing Packages",
+    "image": "/images/services/full-body-wax.jpg",
+    "order": 2
+  },
+  {
+    "id": "essential-package",
+    "name": "Essential Package",
+    "description": "Brazilian, Underarms, Half Leg, Abdomen - Perfect essentials",
+    "duration": "120 min",
+    "price": "K1,070",
+    "category": "Waxing Packages",
+    "image": "/images/services/essential-package.jpg",
+    "order": 3
+  },
+  {
+    "id": "beauty-complete-package",
+    "name": "Beauty Complete Package",
+    "description": "Eyebrows & Tint, Half Leg, Underarms, Chin + Lip - All-in-one beauty",
+    "duration": "105 min",
+    "price": "K950",
+    "category": "Waxing Packages",
+    "image": "/images/services/beauty-complete-package.jpg",
+    "order": 4
+  },
+  {
+    "id": "manikini-wax-men",
+    "name": "Manikini Wax (Men)",
+    "description": "Professional intimate waxing for men",
+    "duration": "50 min",
+    "price": "K550",
+    "category": "Waxing for Men",
+    "image": "/images/services/manikini-wax-men.jpg",
+    "order": 1
+  },
+  {
+    "id": "face-wax-men",
+    "name": "Face Wax (Men)",
+    "description": "Complete facial waxing for men",
+    "duration": "45 min",
+    "price": "K700",
+    "category": "Waxing for Men",
+    "image": "/images/services/face-wax-men.jpg",
+    "order": 2
+  },
+  {
+    "id": "chest-wax-men",
+    "name": "Chest Wax (Men)",
+    "description": "Professional chest waxing for men",
+    "duration": "40 min",
+    "price": "K470",
+    "category": "Waxing for Men",
+    "image": "/images/services/chest-wax-men.jpg",
+    "order": 3
+  },
+  {
+    "id": "full-leg-wax-men",
+    "name": "Full Leg Wax (Men)",
+    "description": "Complete leg waxing for men",
+    "duration": "60 min",
+    "price": "K550",
+    "category": "Waxing for Men",
+    "image": "/images/services/full-leg-wax-men.jpg",
+    "order": 4
+  },
+  {
+    "id": "half-arm-wax-men",
+    "name": "Half Arm Wax (Men)",
+    "description": "Lower arm waxing for men",
+    "duration": "30 min",
+    "price": "K400",
+    "category": "Waxing for Men",
+    "image": "/images/services/half-arm-wax-men.jpg",
+    "order": 5
+  },
+  {
+    "id": "full-arm-wax-men",
+    "name": "Full Arm Wax (Men)",
+    "description": "Complete arm waxing for men",
+    "duration": "40 min",
+    "price": "K450",
+    "category": "Waxing for Men",
+    "image": "/images/services/full-arm-wax-men.jpg",
+    "order": 6
+  },
+  {
+    "id": "back-wax-men",
+    "name": "Back Wax (Men)",
+    "description": "Professional back waxing for men",
+    "duration": "45 min",
+    "price": "K510",
+    "category": "Waxing for Men",
+    "image": "/images/services/back-wax-men.jpg",
+    "order": 7
+  },
+  {
+    "id": "nose-wax-men",
+    "name": "Nose Wax (Men)",
+    "description": "Professional nose hair waxing for men",
+    "duration": "10 min",
+    "price": "K210",
+    "category": "Waxing for Men",
+    "image": "/images/services/nose-wax-men.jpg",
+    "order": 8
+  },
+  {
+    "id": "ear-wax-men",
+    "name": "Ear Wax (Men)",
+    "description": "Gentle ear hair removal for men",
+    "duration": "10 min",
+    "price": "K210",
+    "category": "Waxing for Men",
+    "image": "/images/services/ear-wax-men.jpg",
+    "order": 9
+  },
+  {
+    "id": "lip-wax-men",
+    "name": "Lip Wax (Men)",
+    "description": "Upper lip waxing for men",
+    "duration": "10 min",
+    "price": "K210",
+    "category": "Waxing for Men",
+    "image": "/images/services/lip-wax-men.jpg",
+    "order": 10
+  },
+  {
+    "id": "under-arm-wax-men",
+    "name": "Under Arm Wax (Men)",
+    "description": "Professional underarm waxing for men",
+    "duration": "20 min",
+    "price": "K250",
+    "category": "Waxing for Men",
+    "image": "/images/services/under-arm-wax-men.jpg",
+    "order": 11
+  },
+  {
+    "id": "swedish-massage-90min",
+    "name": "Swedish Massage - 1 Hour 30 Mins",
+    "description": "Light to firm pressure massage that improves circulation and promotes deep relaxation",
+    "duration": "90 min",
+    "price": "K800",
+    "category": "Massages",
+    "image": "/images/services/relaxation-massage.jpg",
+    "order": 1
+  },
+  {
+    "id": "swedish-massage-60min",
+    "name": "Swedish Massage - 1 Hour",
+    "description": "Light to firm pressure massage that improves circulation and promotes deep relaxation",
+    "duration": "60 min",
+    "price": "K480",
+    "category": "Massages",
+    "image": "/images/services/relaxation-massage.jpg",
+    "order": 2
+  },
+  {
+    "id": "swedish-massage-30min",
+    "name": "Swedish Massage - 30 Mins",
+    "description": "Light to firm pressure massage that improves circulation and promotes deep relaxation",
+    "duration": "30 min",
+    "price": "K350",
+    "category": "Massages",
+    "image": "/images/services/relaxation-massage.jpg",
+    "order": 3
+  },
+  {
+    "id": "deep-tissue-massage-90min",
+    "name": "Deep Tissue Massage - 1 Hour 30 Mins",
+    "description": "Targets deep muscle tension, relieves chronic pain and improves posture",
+    "duration": "90 min",
+    "price": "K900",
+    "category": "Massages",
+    "image": "/images/services/deep-tissue-massage-90min.jpg",
+    "order": 4
+  },
+  {
+    "id": "deep-tissue-massage-60min",
+    "name": "Deep Tissue Massage - 1 Hour",
+    "description": "Targets deep muscle tension, relieves chronic pain and improves posture",
+    "duration": "60 min",
+    "price": "K600",
+    "category": "Massages",
+    "image": "/images/services/deep-tissue-massage-60min.jpg",
+    "order": 5
+  },
+  {
+    "id": "deep-tissue-massage-30min",
+    "name": "Deep Tissue Massage - 30 Mins",
+    "description": "Targets deep muscle tension, relieves chronic pain and improves posture",
+    "duration": "30 min",
+    "price": "K400",
+    "category": "Massages",
+    "image": "/images/services/deep-tissue-massage-30min.jpg",
+    "order": 6
+  },
+  {
+    "id": "pregnancy-massage-90min",
+    "name": "Pregnancy Massage - 1 Hour 30 Mins",
+    "description": "Promotes wellness and relaxation for expecting mothers (post-first-trimester only)",
+    "duration": "90 min",
+    "price": "K970",
+    "category": "Massages",
+    "image": "/images/services/pregnancy-massage-90min.jpg",
+    "order": 7
+  },
+  {
+    "id": "pregnancy-massage-60min",
+    "name": "Pregnancy Massage - 1 Hour",
+    "description": "Promotes wellness and relaxation for expecting mothers (post-first-trimester only)",
+    "duration": "60 min",
+    "price": "K600",
+    "category": "Massages",
+    "image": "/images/services/pregnancy-massage-60min.jpg",
+    "order": 8
+  },
+  {
+    "id": "pregnancy-massage-30min",
+    "name": "Pregnancy Massage - 30 Mins",
+    "description": "Promotes wellness and relaxation for expecting mothers (post-first-trimester only)",
+    "duration": "30 min",
+    "price": "K450",
+    "category": "Massages",
+    "image": "/images/services/pregnancy-massage-30min.jpg",
+    "order": 9
+  },
+  {
+    "id": "classic-lashes",
+    "name": "Classic Lashes",
+    "description": "Natural-looking individual lash extensions for everyday elegance",
+    "duration": "120 min",
+    "price": "K300",
+    "category": "Lash Services",
+    "image": "/images/services/classic-lash-extensions.jpg",
+    "order": 1
+  },
+  {
+    "id": "cluster-lashes",
+    "name": "Cluster Lashes",
+    "description": "Cluster lash application for added volume and definition",
+    "duration": "90 min",
+    "price": "K250",
+    "category": "Lash Services",
+    "image": "/images/services/cluster-lashes.jpg",
+    "order": 2
+  },
+  {
+    "id": "hybrid-lashes",
+    "name": "Hybrid Lashes",
+    "description": "Perfect blend of classic and volume lashes for natural fullness",
+    "duration": "150 min",
+    "price": "K450",
+    "category": "Lash Services",
+    "image": "/images/services/volume-lashes.jpg",
+    "order": 3
+  },
+  {
+    "id": "lash-removal",
+    "name": "Lash Removal",
+    "description": "Safe and gentle lash extension removal",
+    "duration": "30 min",
+    "price": "K100",
+    "category": "Lash Services",
+    "image": "/images/services/lash-removal.jpg",
+    "order": 4
+  },
+  {
+    "id": "lash-refill",
+    "name": "Lash Refill",
+    "description": "Maintain your beautiful lashes with a professional refill",
+    "duration": "75 min",
+    "price": "K200",
+    "category": "Lash Services",
+    "image": "/images/services/lash-lift-tint.avif",
+    "order": 5
+  }
+]

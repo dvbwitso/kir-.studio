@@ -1,0 +1,35 @@
+[
+  {
+    "id": "shimmer-body-oil-bronze-baddie",
+    "name": "Shimmer Body Oil \"Bronze Baddie\"",
+    "category": "Body Oils",
+    "description": "Luxurious shimmer body oil with a bronze glow - 30mls",
+    "price": "K100",
+    "stock": 15,
+    "inStock": true,
+    "image": "/images/products/shimmer-bronze-baddie.jpg",
+    "order": 1
+  },
+  {
+    "id": "shimmer-body-oil-rosey-glow",
+    "name": "Shimmer Body Oil \"Rosey Glow\"",
+    "category": "Body Oils",
+    "description": "Beautiful shimmer body oil with a rosey glow - 30mls",
+    "price": "K100",
+    "stock": 15,
+    "inStock": true,
+    "image": "/images/products/shimmer-rosey-glow.jpg",
+    "order": 2
+  },
+  {
+    "id": "glow-oil-face-body",
+    "name": "Glow Oil (Face & Body)",
+    "category": "Body Oils",
+    "description": "Multi-purpose glow oil for face and body - 30mls",
+    "price": "K100",
+    "stock": 20,
+    "inStock": true,
+    "image": "/images/products/glow-oil-face-body.jpg",
+    "order": 3
+  }
+]
